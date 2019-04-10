@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TradeJournalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TradeJournal.dbo.Journal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Journal">
+    <Key>
+      <PropertyRef Name="journal_id" />
+    </Key>
+    <Property Name="journal_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stock_code" Type="varchar" MaxLength="50" />
+    <Property Name="journal_date" Type="datetime" />
+    <Property Name="entry_date" Type="datetime" />
+    <Property Name="exit_date" Type="datetime" />
+    <Property Name="entry_reason" Type="varchar(max)" />
+    <Property Name="exit_reason" Type="varchar(max)" />
+    <Property Name="shares" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TradeJournal.dbo.JournalDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="JournalDetails">
+    <Key>
+      <PropertyRef Name="journal_detail_id" />
+      <PropertyRef Name="journal_id" />
+    </Key>
+    <Property Name="journal_detail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="journal_id" Type="int" Nullable="false" />
+    <Property Name="entry_price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="entry_clearing_fee" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="entry_commission" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="entry_vat" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="entry_trans_fee" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="entry_gross_amt" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="exit_price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="exit_clearing_fee" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="exit_commission" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="exit_trans_fee" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="exit_vat" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="exit_sales_tax" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="exit_gross_amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="entry_charge_total" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="exit_charge_total" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="profit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="gain_percentage" Type="decimal" Precision="6" Scale="2" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="First_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="TradeJournalModelStoreContainer">
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Journal" EntityType="Self.Journal" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Journal].[journal_id] AS [journal_id], 
+    [Journal].[stock_code] AS [stock_code], 
+    [Journal].[journal_date] AS [journal_date], 
+    [Journal].[entry_date] AS [entry_date], 
+    [Journal].[exit_date] AS [exit_date], 
+    [Journal].[entry_reason] AS [entry_reason], 
+    [Journal].[exit_reason] AS [exit_reason], 
+    [Journal].[shares] AS [shares]
+    FROM [dbo].[Journal] AS [Journal]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="JournalDetails" EntityType="Self.JournalDetails" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [JournalDetails].[journal_detail_id] AS [journal_detail_id], 
+    [JournalDetails].[journal_id] AS [journal_id], 
+    [JournalDetails].[entry_price] AS [entry_price], 
+    [JournalDetails].[entry_clearing_fee] AS [entry_clearing_fee], 
+    [JournalDetails].[entry_commission] AS [entry_commission], 
+    [JournalDetails].[entry_vat] AS [entry_vat], 
+    [JournalDetails].[entry_trans_fee] AS [entry_trans_fee], 
+    [JournalDetails].[entry_gross_amt] AS [entry_gross_amt], 
+    [JournalDetails].[exit_price] AS [exit_price], 
+    [JournalDetails].[exit_clearing_fee] AS [exit_clearing_fee], 
+    [JournalDetails].[exit_commission] AS [exit_commission], 
+    [JournalDetails].[exit_trans_fee] AS [exit_trans_fee], 
+    [JournalDetails].[exit_vat] AS [exit_vat], 
+    [JournalDetails].[exit_sales_tax] AS [exit_sales_tax], 
+    [JournalDetails].[exit_gross_amt] AS [exit_gross_amt], 
+    [JournalDetails].[entry_charge_total] AS [entry_charge_total], 
+    [JournalDetails].[exit_charge_total] AS [exit_charge_total], 
+    [JournalDetails].[profit] AS [profit], 
+    [JournalDetails].[gain_percentage] AS [gain_percentage]
+    FROM [dbo].[JournalDetails] AS [JournalDetails]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

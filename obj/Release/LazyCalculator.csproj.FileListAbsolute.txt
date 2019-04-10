@@ -1,0 +1,11 @@
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\bin\Release\LazyCalculator.exe.config
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\bin\Release\LazyCalculator.exe
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\bin\Release\LazyCalculator.pdb
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\obj\Release\LazyCalculator.LazyCalculator.resources
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\obj\Release\LazyCalculator.Properties.Resources.resources
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\obj\Release\LazyCalculator.csproj.GenerateResource.cache
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\obj\Release\LazyCalculator.csproj.CoreCompileInputs.cache
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\obj\Release\LazyCalculator.exe
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\obj\Release\LazyCalculator.pdb
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\obj\Release\LazyCalculator.csprojAssemblyReference.cache
+C:\Users\Anne\source\repos\LazyCalculator\LazyCalculator\obj\Release\LazyCalculator.NewJournal.resources
